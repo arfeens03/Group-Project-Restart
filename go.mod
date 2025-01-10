@@ -1,4 +1,5 @@
-module tgtest
+module kubete_torrentBot
+
 
 go 1.23.4
 
