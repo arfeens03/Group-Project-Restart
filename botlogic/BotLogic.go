@@ -69,7 +69,7 @@ func Login(chat_id int64) string {
 	switch code {
 	case "1": // не опознанный/истёкший токен:
 		strgred.Redis_delete(chat_id)
-		return "Вы не вошли либо время входа истекло."
+		return "Вы не вошли, либо время входа истекло."
 	case "2": // в доступе отказано:
 		strgred.Redis_delete(chat_id)
 		return "Неудачная авторизация."
@@ -161,11 +161,11 @@ func Alert() map[int64]string {
 
 	for _, user_id := range chat_ids {
 		// запрос главному модулю на URL /notification по токену доступа
-		_, acess_token, _ := strgred.Redis_get(user_id)
-		notic := remote.SendMain("/notififcation" + "\n" + acess_token)
+		_, access_token, _ := strgred.Redis_get(user_id)
+		notic := remote.SendMain("/notififcation" + "\n" + access_token)
 		notifications[int64(user_id)] = notic
 		// запрос главному модулю на удаление уведомлений по JWT токену доступа
-		remote.SendMain("/notififcation /delete" + "\n" + acess_token)
+		remote.SendMain("/notififcation /delete" + "\n" + access_token)
 	}
 	return notifications
 }

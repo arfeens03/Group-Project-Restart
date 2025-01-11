@@ -1,8 +1,14 @@
 package remote
 
+import (
+	"net"
+	"bufio"
+	"log"
+)
+
 func SendMain(request string) string {
 	// открываем соединение
-	/*
+	
 		conn, err := net.Dial("tcp", ":8080")
 		if err != nil {
 			log.Panic("Error in remote: ", err)
@@ -17,13 +23,13 @@ func SendMain(request string) string {
 		connReader := bufio.NewReader(conn)
 		message, _ := connReader.ReadString('\n')
 		return message
-	*/
-	return "Ошибка подключения"
+	
+	// return "Ошибка подключения"
 }
 
 func SendAu(request string) string {
-	// открываем соединение
-	/*
+	//открываем соединение
+	
 		conn, err := net.Dial("tcp", ":8080")
 		if err != nil {
 			log.Panic("Error in remote: ", err)
@@ -38,6 +44,6 @@ func SendAu(request string) string {
 		connReader := bufio.NewReader(conn)
 		message, _ := connReader.ReadString('\n')
 		return message
-	*/
-	return "1"
+	
+	// return "1"
 }

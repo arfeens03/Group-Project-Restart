@@ -47,9 +47,8 @@ func NewClient(ctx context.Context, cfg Config) (*redis.Client, error) {
 
 // конкретный конфиг подключения к бд
 var cfg Config = Config{
-	Addr:        "localhost:6380",
-	Password:    "ylp3QnB(VR0v>oL<Y3heVgsdE)+O+RZ",
-	User:        "leosah",
+	Addr:        "localhost:6379",
+	User:        " ",
 	DB:          0,
 	MaxRetries:  5,
 	DialTimeout: 10 * time.Second,

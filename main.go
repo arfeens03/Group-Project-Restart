@@ -23,7 +23,7 @@ func main() {
 	go Timer()
 
 	// создаём бота по зарегестрированному API
-	bot, err := tgbotapi.NewBotAPI("7798824633:AAFd4IkF6Rfvs-Fh0h2rSytWCdKLSQJTwaM")
+	bot, err := tgbotapi.NewBotAPI("7913546799:AAFUknlXWVYhsqgcOzq8P3S3ZLItye3-G8g")
 	if err != nil {
 		log.Panic(err)
 	}
@@ -66,7 +66,7 @@ func main() {
 				command := update.Message.Command()
 				args := update.Message.CommandArguments()
 
-				// не даём выполнять команды неищвестным и анонимным
+				// не даём выполнять команды неизвестным и анонимным
 				if status == "Неизвестный" || status == "Анонимный" {
 					if command != "start" && command != "help" && command != "status" && command != "login" && command != "anonme" && command != "aume" {
 						command = "login"
@@ -202,10 +202,10 @@ func main() {
 							git_ref := remote.SendAu("/GET github")
 							ya_ref := remote.SendAu("/GET yandex")
 							if git_ref == "1" {
-								git_ref = "https://github.com"
+								git_ref = "https://your-api-endpoint.com/auth/github"
 							}
 							if ya_ref == "1" {
-								ya_ref = "https://yandex.ru"
+								ya_ref = "https://your-api-endpoint.com/auth/yandex"
 							}
 							keyboard := tgbotapi.NewInlineKeyboardMarkup(
 								tgbotapi.NewInlineKeyboardRow(
